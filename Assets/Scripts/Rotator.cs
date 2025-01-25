@@ -19,15 +19,19 @@ public class Rotator : MonoBehaviour
         transform.Rotate(rotation);
     }
 
-    public void StartEngine(float speed)
+    public void StartEngine()
     {
         shouldWork = true;
-        rotationX = speed;
     }
 
     public void StopEngine()
     {
         shouldWork = false;
         rotationX = 0;
+    }
+
+    public void AdjustSpeed(float speed)
+    {
+        rotationX = speed;
     }
 }
