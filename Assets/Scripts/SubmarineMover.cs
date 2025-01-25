@@ -22,8 +22,6 @@ public class SubmarineMover : MonoBehaviour
             rotator.StartEngine();
             rotator.AdjustSpeed(speed);
             bubbleSpawner.SetVisible();
-
-           
             HandleBoost();
             HandleRotation();
         }
@@ -33,7 +31,7 @@ public class SubmarineMover : MonoBehaviour
             if (speed > 1) speed -= 0.04f;
             else bubbleSpawner.SetHidden();
         }
-        HandleGravity();
+        // HandleGravity();
         bubbleSpawner.UpdateBubbleScale(speed * 0.05f);
     }
 

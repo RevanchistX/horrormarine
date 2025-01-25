@@ -28,7 +28,7 @@ public class BubbleSpawner : MonoBehaviour
 
     void Update()
     {
-        UpdateBubbleScale(bubbleScale);
+        // UpdateBubbleScale(bubbleScale);
         RotateTrail();
     }
 
