@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BubbleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject bubble;
+    [SerializeField] private GameObject bubble2;
 
     // [SerializeField] private int bubbleCount = 5;
     [SerializeField, Range(0, 1)] private float bubbleScale;
@@ -19,17 +21,43 @@ public class BubbleSpawner : MonoBehaviour
     private Vector3 bubbleOffset;
     private Vector3 bubbleRotate;
     private GameObject trailBubble;
+    private float timer;
+    public List<GameObject> bubbles = new();
 
 
     void Start()
     {
+        timer = 0;
         GenerateTrail();
     }
 
     void Update()
     {
+        SpawnTimer();
         // UpdateBubbleScale(bubbleScale);
         RotateTrail();
+    }
+
+    private void SpawnTimer()
+    {
+        timer++;
+        if (!(timer > 100)) return;
+        timer = 0;
+        GenerateBabble();
+        // var rb = babbl.AddComponent<Rigidbody>();
+        // rb.useGravity = false;
+    }
+
+    private void GenerateBabble()
+    {
+        var babbl = Instantiate(bubble2,
+            submarine.transform.forward + new Vector3(Random.Range(-20, 0), Random.Range(-20, 20), 0),
+            Quaternion.identity);
+        babbl.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+        babbl.name = $"Bubble to consume";
+        var colider = babbl.AddComponent<BoxCollider>();
+        colider.isTrigger = true;
+        bubbles.Add(babbl);
     }
 
     public void UpdateBubbleScale(float value)

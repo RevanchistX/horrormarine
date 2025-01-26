@@ -10,6 +10,12 @@ public class SubmarineMover : MonoBehaviour
     [SerializeField] private BubbleSpawner bubbleSpawner;
     private float speed;
     private float originalSpeed;
+    private AtmosphereControl atmosphereControl;
+
+    private void Start()
+    {
+        atmosphereControl = GetComponent<AtmosphereControl>();
+    }
 
     private void Update()
     {
@@ -31,6 +37,7 @@ public class SubmarineMover : MonoBehaviour
             if (speed > 1) speed -= 0.04f;
             else bubbleSpawner.SetHidden();
         }
+
         // HandleGravity();
         bubbleSpawner.UpdateBubbleScale(speed * 0.05f);
     }
@@ -39,7 +46,8 @@ public class SubmarineMover : MonoBehaviour
     {
         var position = transform.position;
         var value = 0.1f;
-        transform.position = Vector3.Lerp(position, new Vector3(position.x - value, position.y - value, position.z), 10);
+        transform.position =
+            Vector3.Lerp(position, new Vector3(position.x - value, position.y - value, position.z), 10);
     }
 
     private void HandleRotation()
@@ -77,5 +85,20 @@ public class SubmarineMover : MonoBehaviour
             if (speed >= 5)
                 speed -= speedBoostModifier;
         }
+        
+        
+    }
+
+    private void OnMouseDown()
+    {
+        atmosphereControl.ModifyDensity(0);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        print(collision.gameObject);
+        if (!collision.gameObject.name.Contains("Bubble to consume")) return;
+        atmosphereControl.ModifyDensity(0);
+        Destroy(collision.gameObject);
     }
 }

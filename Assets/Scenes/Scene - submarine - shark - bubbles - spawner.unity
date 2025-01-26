@@ -17,14 +17,14 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.5320754, g: 0.5320754, b: 0.5320754, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.03
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.46314248, g: 0.6125886, b: 0.9193465, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 147938778}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -60, y: 16, z: 1}
+  m_LocalPosition: {x: -200, y: 50, z: 1}
   m_LocalScale: {x: 500, y: 1, z: 500}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -692,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 3996613084438555877, guid: 6237ddf94f260ed438552bdaf95a07fe, type: 3}
+  bubble2: {fileID: 8771091787928289351, guid: 075803e6a1b20a14090613aeb51b21ef, type: 3}
   bubbleScale: 0.31
   submarine: {fileID: 8128668237022065812}
   bubbleOffsetX: 18.5
@@ -700,6 +701,7 @@ MonoBehaviour:
   bubbleRotateX: 3
   bubbleRotateY: 0
   bubbleRotateZ: 0
+  bubbles: []
 --- !u!4 &1199111515
 Transform:
   m_ObjectHideFlags: 0
@@ -862,7 +864,7 @@ Transform:
   m_GameObject: {fileID: 2032191928}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08615619, y: -0, z: -0, w: 0.9962817}
-  m_LocalPosition: {x: -16.629015, y: 4.92, z: -26.349998}
+  m_LocalPosition: {x: -16.629015, y: 4.92, z: -54.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4817,6 +4819,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8897093224997366813}
   - component: {fileID: 1134089831}
+  - component: {fileID: 8897093224997366814}
+  - component: {fileID: 8897093224997366815}
+  - component: {fileID: 8897093224997366816}
   m_Layer: 0
   m_Name: Submarine
   m_TagString: Untagged
@@ -5081,6 +5086,71 @@ Transform:
   - {fileID: 147938783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -300.45502, y: 0, z: 0}
+--- !u!114 &8897093224997366814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128668237022065812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacb61cfdb514365b8dea63b090c178d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fogDensity: 0.01
+  fogDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  fogInitialColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!54 &8897093224997366815
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128668237022065812}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &8897093224997366816
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128668237022065812}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Height: 35
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8935726462860842200
 Transform:
   m_ObjectHideFlags: 0
