@@ -194,7 +194,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1690214390120200165, guid: 956b0bac40e47f444b2a34a1201bd5c4, type: 3}
+  - {fileID: 5503195876807674852, guid: 956b0bac40e47f444b2a34a1201bd5c4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7766,9 +7766,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0868dfc4e345a78294eee45bb0c7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intro: 0
-  gameplay: 0
-  endgame: 1
+  intro: 1
+  gameplay: 1
+  endgame: 0
   submarine: {fileID: 8128668237022065812}
   x: 60
   y: -52.2
