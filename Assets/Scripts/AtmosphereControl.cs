@@ -9,7 +9,8 @@ public class AtmosphereControl : MonoBehaviour
     private void Update()
     {
         fogDensity += 0.000005f;
-        if (fogDensity > 0.03f) fogDensity = 0.028f;
+        // if (fogDensity > 0.03f) fogDensity = 0.028f;
+        if (fogDensity > 0.03f) fogDensity = 0.035f;
         RenderSettings.fogDensity = fogDensity;
         RenderSettings.fogColor = Color.Lerp(fogInitialColor, fogDamageColor, fogDensity * 10);
     }

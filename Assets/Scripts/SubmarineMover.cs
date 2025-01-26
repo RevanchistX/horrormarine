@@ -85,13 +85,19 @@ public class SubmarineMover : MonoBehaviour
             if (speed >= 5)
                 speed -= speedBoostModifier;
         }
-        
-        
     }
 
     private void OnMouseDown()
     {
-        atmosphereControl.ModifyDensity(0);
+        // atmosphereControl.ModifyDensity(0);
+        if (RenderSettings.fogDensity > 0.3f)
+        {
+            atmosphereControl.ModifyDensity(0);
+        }
+        else
+        {
+            atmosphereControl.ModifyDensity(0.3f);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
