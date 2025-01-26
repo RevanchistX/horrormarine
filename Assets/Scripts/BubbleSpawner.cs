@@ -23,7 +23,7 @@ public class BubbleSpawner : MonoBehaviour
     private GameObject trailBubble;
     private float timer;
     public List<GameObject> bubbles = new();
-
+    private bool shoulWork = false;
 
     void Start()
     {
@@ -33,7 +33,8 @@ public class BubbleSpawner : MonoBehaviour
 
     void Update()
     {
-        // SpawnTimer();
+        if (Input.GetKey(KeyCode.T)) shoulWork = true;
+        if (shoulWork) SpawnTimer();
         // UpdateBubbleScale(bubbleScale);
         RotateTrail();
     }
@@ -41,7 +42,7 @@ public class BubbleSpawner : MonoBehaviour
     private void SpawnTimer()
     {
         timer++;
-        if (!(timer > 100)) return;
+        if (!(timer > 200)) return;
         timer = 0;
         GenerateBabble();
         // var rb = babbl.AddComponent<Rigidbody>();
@@ -50,8 +51,9 @@ public class BubbleSpawner : MonoBehaviour
 
     private void GenerateBabble()
     {
+        print(submarine.transform.forward);
         var babbl = Instantiate(bubble2,
-            submarine.transform.forward + new Vector3(Random.Range(-20, 0), Random.Range(-20, 20), 0),
+            submarine.transform.position + new Vector3(Random.Range(-1000, 0), Random.Range(-20, 20), 0),
             Quaternion.identity);
         babbl.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
         babbl.name = $"Bubble to consume";

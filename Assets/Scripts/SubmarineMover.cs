@@ -77,7 +77,11 @@ public class SubmarineMover : MonoBehaviour
         if (isSpace)
         {
             if (speed < 20)
+            {
                 speed += speedBoostModifier;
+                atmosphereControl.ModifyDensity(RenderSettings.fogDensity + 0.000015f);
+            }
+
             WASD.ADMovement(transform, 1.5f);
         }
         else
@@ -90,13 +94,13 @@ public class SubmarineMover : MonoBehaviour
     private void OnMouseDown()
     {
         // atmosphereControl.ModifyDensity(0);
-        if (RenderSettings.fogDensity > 0.3f)
+        if (RenderSettings.fogDensity > 0.03f)
         {
             atmosphereControl.ModifyDensity(0);
         }
         else
         {
-            atmosphereControl.ModifyDensity(0.3f);
+            atmosphereControl.ModifyDensity(0.03f);
         }
     }
 
@@ -104,7 +108,7 @@ public class SubmarineMover : MonoBehaviour
     {
         print(collision.gameObject);
         if (!collision.gameObject.name.Contains("Bubble to consume")) return;
-        atmosphereControl.ModifyDensity(0);
+        atmosphereControl.ModifyDensity(RenderSettings.fogDensity - 0.0f);
         Destroy(collision.gameObject);
     }
 }

@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 147938778}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -200, y: 50, z: 1}
+  m_LocalPosition: {x: -200, y: 100, z: 1}
   m_LocalScale: {x: 500, y: 1, z: 500}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -936,7 +936,7 @@ Transform:
   m_GameObject: {fileID: 2032191928}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08615619, y: -0, z: -0, w: 0.9962817}
-  m_LocalPosition: {x: -16.629015, y: 4.92, z: -54.7}
+  m_LocalPosition: {x: -16.629015, y: 20.4, z: -143.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToLookAt: {fileID: 8897093224997366813}
+  offset: 50
 --- !u!4 &19069067256705466
 Transform:
   m_ObjectHideFlags: 0
@@ -7766,7 +7767,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intro: 0
-  gameplay: 1
+  gameplay: 0
+  endgame: 1
   submarine: {fileID: 8128668237022065812}
   x: 60
   y: -52.2
