@@ -33,7 +33,7 @@ public class BubbleSpawner : MonoBehaviour
 
     void Update()
     {
-        SpawnTimer();
+        // SpawnTimer();
         // UpdateBubbleScale(bubbleScale);
         RotateTrail();
     }
